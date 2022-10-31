@@ -8,7 +8,7 @@ namespace API_Peliculas.PeliculasMapper
     {
         public PeliculasMapper()
         {
-            CreateMap<Categoria, CategoriaDto>().ReverseMap();
+            CreateMap<Categoria, CategoriaDto>().ReverseMap(); //Comment
         }
     }
 }
