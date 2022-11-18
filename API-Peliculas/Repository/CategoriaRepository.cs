@@ -53,12 +53,12 @@ namespace API_Peliculas.Repository
 
         public ICollection<Categoria> GetCategorias()
         {
-           return _bd.Categoria.OrderBy(c => c.Nombre).ToList();
+            return _bd.Categoria.OrderBy(c => c.Nombre).ToList();
         }
 
         public bool Guardar()
         {
-            return _bd.SaveChanges() >= 0 ? true : false;
+            return _bd.SaveChanges() >= 0;
         }
     }
 }

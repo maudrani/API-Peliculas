@@ -4,11 +4,11 @@ using AutoMapper;
 
 namespace API_Peliculas.PeliculasMapper
 {
-    public class PeliculasMapper : Profile
+    public class PeliculasMappers : Profile
     {
-        public PeliculasMapper()
+        public PeliculasMappers()
         {
-            CreateMap<Categoria, CategoriaDto>().ReverseMap(); //Comment
+            CreateMap<Categoria, CategoriaDto>().ReverseMap();
         }
     }
 }

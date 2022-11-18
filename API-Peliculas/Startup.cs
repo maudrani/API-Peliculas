@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using API_Peliculas.Repository.IRepository;
 using API_Peliculas.Repository;
+using API_Peliculas.PeliculasMapper;
 
 namespace API_Peliculas
 {
@@ -28,9 +29,9 @@ namespace API_Peliculas
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-           
-            services.AddDbContext < ApplicationDbContext >(Options => Options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<ApplicationDbContext>(Options => Options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddScoped<ICategoriaRepository, CategoriaRepository>();
+            services.AddAutoMapper(typeof(PeliculasMappers));
             services.AddControllers();
             services.AddRazorPages();
         }
@@ -53,7 +54,7 @@ namespace API_Peliculas
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
